@@ -9,7 +9,7 @@
 		//protected
 		protected var _loader:URLLoader = new URLLoader();
 		protected var _request:URLRequest;
-		protected var _parametros:URLVariables;
+		protected var _params:URLVariables;
 		protected var _loaderData:*;
 		protected var _verbose:Boolean = false;
 		
@@ -24,7 +24,7 @@
 			//no default constructor
 		}
 		
-		public function load(path:String, verbose:Boolean = false, parametros:Object=null, format:String = "variables", nocache:Boolean = true):void {
+		public function load(path:String, verbose:Boolean = false, params:Object=null, format:String = "variables", nocache:Boolean = true):void {
 			
 			_verbose = verbose;
 			_loader.dataFormat = format;
@@ -44,13 +44,13 @@
 				_request = new URLRequest(path);
 			}
 			
-			if (parametros) {
-				_parametros = new URLVariables();
-				for (var chave in parametros) {
+			if (params) {
+				_params = new URLVariables();
+				for (var chave in params) {
 					//trace(parametros[chave]);
-					_parametros[chave] = parametros[chave];
+					_params[chave] = params[chave];
 				}
-				_request.data = _parametros;
+				_request.data = _params;
 				_request.method = URLRequestMethod.POST;
 
 			}

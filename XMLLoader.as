@@ -20,7 +20,7 @@
 		 * @param	nocache
 		 * @param	callback : expect a XML object as argument
 		 */
-		public function load(path:String, verbose:Boolean = false, parametros:Object=null, nocache:Boolean = true, callback:Function = null){
+		public function load(path:String, verbose:Boolean = false, params:Object=null, nocache:Boolean = true, callback:Function = null){
 			
 			XML.ignoreWhitespace = true;
 		
@@ -28,7 +28,7 @@
 			
 			//o data format em LoadVars.as defaults para Variables
 			_loader = new DataLoader();
-			_loader.Load(path, verbose, parametros, "text", nocache);
+			_loader.Load(path, verbose, params, "text", nocache);
 			_loader.addEventListener(Event.COMPLETE, onComplete);
 			_loader.addEventListener(ProgressEvent.PROGRESS, onProgress);
 			
