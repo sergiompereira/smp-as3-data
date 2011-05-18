@@ -109,15 +109,15 @@
 						_present+=1;
 					}
 					
-					for (var j:uint = 0; j < InputValidation.specialChars.length; j++) {
+					for (var j:uint = 0; j < DataValidation.specialChars.length; j++) {
 						//verifica à esquerda
-						if (_inputtxt.charAt(_wordindex - 1) == InputValidation.specialChars[j]) {
+						if (_inputtxt.charAt(_wordindex - 1) == DataValidation.specialChars[j]) {
 							
 							//detectado à esquerda
 							_present+=1;
 						}
 						//verifica à direita
-						if (_inputtxt.charAt(_wordindex + _words[i].length) == InputValidation.specialChars[j]) {
+						if (_inputtxt.charAt(_wordindex + _words[i].length) == DataValidation.specialChars[j]) {
 							
 							//detectado à direita
 							_present+=1;
