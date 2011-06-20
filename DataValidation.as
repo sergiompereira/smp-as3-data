@@ -134,17 +134,19 @@
 			}
 			return false;
 		}
-		public static function isNumber(original:String):* {
+		
+		public static function isNumber(original:String):Boolean {
 			
 			original = StringUtilities.trim(original);
-			//[e] num número é interpretado como expoente de 10
-			if(original.search("e") >= 0){
-				return false;
-			}else {
-				return Number(original);
+			
+			if( isNaN(Number(original)) ) {
+			   return false;
 			}
-			return false;
+
+			return true;
 		}
+		
+		
 		
 		public static function isNumberRegExp(original:String):Boolean {
 			
