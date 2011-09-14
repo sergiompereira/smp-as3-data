@@ -2,7 +2,7 @@
 	import flash.events.*;
 	import flash.net.*;
 	
-	import srg.data.DataLoader;
+	import com.smp.data.DataLoader;
 	
 	public class XMLLoader extends EventDispatcher {
 			
@@ -28,7 +28,7 @@
 			
 			//o data format em LoadVars.as defaults para Variables
 			_loader = new DataLoader();
-			_loader.Load(path, verbose, params, "text", nocache);
+			_loader.load(path, verbose, params, "text", nocache);
 			_loader.addEventListener(Event.COMPLETE, onComplete);
 			_loader.addEventListener(ProgressEvent.PROGRESS, onProgress);
 			
@@ -45,7 +45,7 @@
 				dispatchEvent(new Event(Event.COMPLETE));
 				
 				if (_callback != null) {
-					_callback(this.XMLTree);
+					_callback(this.loadedXML);
 				}
 				
 			}catch(err:Error){
