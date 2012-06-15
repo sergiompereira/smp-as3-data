@@ -31,6 +31,9 @@
 			_loader.load(path, verbose, params, "text", nocache);
 			_loader.addEventListener(Event.COMPLETE, onComplete);
 			_loader.addEventListener(ProgressEvent.PROGRESS, onProgress);
+			_loader.addEventListener(IOErrorEvent.IO_ERROR, onIOError, false, 0, true);
+			_loader.addEventListener(SecurityErrorEvent.SECURITY_ERROR, onSecurityError, false, 0, true);
+			
 			
 		}
 		
@@ -67,6 +70,15 @@
 		
 		public function get loadedXML():XML{
 			return _xml;
+		}
+		
+		private function onSecurityError(evt:SecurityErrorEvent):void {
+			trace("Erro de seguranca: "+evt.text);
+			dispatchEvent(evt);
+		}
+		protected function onIOError(evt:IOErrorEvent):void {
+			trace("Erro de loading: "+evt.text);
+			dispatchEvent(evt);
 		}
 		
 		
